@@ -8,6 +8,7 @@ a monocular camera. The goal is to recognize agent categories like cars, pedestr
 cycles from a RGB monocular camera and identifying their size and location in space with
 3D bounding boxes.
 
+![](img/visu_1.jpg)
 
 # Run the code
 ## Dataset
