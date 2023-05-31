@@ -23,11 +23,11 @@ The environement can be setup using `pip install requirement.txt`
          test.txt
          train.txt
          val.txt
- data/
-     calib/
-     image_2/
-     label_2/
-     predicted/
+     data/
+         calib/
+         image_2/
+         label_2/
+         predicted/
 ```
 
 The `label_2` folder contains the train, validation and test images.
