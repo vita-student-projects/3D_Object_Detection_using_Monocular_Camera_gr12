@@ -1,0 +1,60 @@
+random_seed: 444
+
+dataset:
+  type: 'kitti'
+  root_dir: '/scratch/izar/thirt'     # YOUR PATH to KITTI folder
+  image_format: 'png'
+  batch_size: 32
+  class_merging: False
+  use_dontcare: False
+  use_3d_center: True
+  writelist: ['Pedestrian','Car','Cyclist','Van','Truck','Tram','Person_sitting']
+  cls_mean_size: [[1.76255119    ,0.66068622   , 0.84422524   ],  # Pedestrian height, width, length
+                  [1.52563191462 ,1.62856739989, 3.88311640418],  # Car
+                  [1.73698127    ,0.59706367   , 1.76282397   ],  # Cyclist
+                  [2             ,2            , 5],              # Van
+                  [4             ,2.5          , 10],             # Truck
+                  [2.4           ,2.5          , 20],             # Tram
+                  [1.2           ,0.66         , 0.9]]            # Person sitting
+  random_flip: 0.5
+  random_crop: 0.5
+  scale: 0.4
+  shift: 0.1
+
+model:
+  type: 'gupnet'
+  backbone: 'dla34'
+  neck: 'DLAUp'
+
+optimizer:
+  type: 'adam'
+  lr: 0.00125
+  weight_decay: 0.00001
+
+lr_scheduler:
+  warmup: True    # 5 epoches, cosine warmup, init_lir=0.00001 in default
+  decay_rate: 0.1
+  decay_list: [90, 120]
+
+trainer:    
+  eval_frequency: 10                      # evaluation interval (in epoch)
+  save_frequency: 10                      # checkpoint save interval (in epoch)
+  disp_frequency: 5                       # display interval (in batch)
+  log_dir: 'log_smgupnet'                 # YOUR PATH to log folder
+  # resume_model: '../../KITTI/test.pth'  # Pre-trained GupNet model
+  output_dir: 'outputs_smgupnet/'         # YOUR PATH to outputs folder
+  max_epoch: 5 
+  # curriculum: [8,16,24]                 # apply curriculum learning (easy -> moderate -> hard -> all)
+tester:
+  resume_model: 'log_universe/checkpoints/checkpoint_epoch_140.pth'  # YOUR PATH to pre-trained SMGUP-net model
+  output_dir: 'outputs_smgupnet/'   # YOUR PATH to outputs folder
+  thresholds:                       # confidence filter for objects selection
+    thresh_default: 0.2             # applied to any object if respective threshold is not set
+    thresh_pedestrian: 0.2
+    thresh_car: 0.1  
+    thresh_cyclist: 0.2
+    thresh_van: 0.05
+    thresh_truck: 0.05
+    thresh_tram: 0.05
+    thresh_person_sitting: 0.2
+  

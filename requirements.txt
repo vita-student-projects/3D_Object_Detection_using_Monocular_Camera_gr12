@@ -1,0 +1,14 @@
+# python 3.7.7
+# pip install --upgrade pip setuptools wheel
+# pip install --upgrade pip
+
+matplotlib
+numpy
+opencv-python
+pyparsing
+PyYAML
+scikit-image
+torch==1.13.1
+torchvision==0.14.1
+tqdm
+urllib3==1.26.15
