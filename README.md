@@ -59,12 +59,12 @@ We implemented two main contribution. The first one is to add a curriculum learn
 |**GUP-net**           | 22.22 | 0.77 | 7.16 |
 |**GUP-net curriculum** | 21.39 | 2.08 | 10.73 | 
 |**GUP-net all labels**| 21.35 | 4.52 | 8.82 |  
-|
+||
 |<font color="red">***medium***</font>|
 |**GUP-net**           | 16.32 | 0.46 | 2.66 |
 |**GUP-net curriculum** | 15.80 | 1.32 |   3.92 | 
 |**GUP-net all labels**| 17.71 | 2.84 | 4.55 |  
-|
+||
 | <font color="red">***hard***</font> |
 |**GUP-net**           | 15.10| 0.46 | 2.22 |
 |**GUP-net curriculum** | 14.46 | 1.38 |   3.33| 
