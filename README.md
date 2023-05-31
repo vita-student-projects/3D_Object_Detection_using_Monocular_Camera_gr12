@@ -95,7 +95,7 @@ The second contribution is to add the detection of all the other labels of KITTI
 
 ## Evaluation and Visualization
 
-To evaluate the model you have to run the compiled c file `evaulation_metrics/evaluate_3D_AP40` with the folowing command line : 
+To evaluate the model you have to run the compiled c file `evaluation_metrics/evaluate_3D_AP40` with the folowing command line : 
 
 `./evaluate_3D_AP40 "<your path to label_2 folder (included)>" "<your path to predicted data folder (not included)"`
 
